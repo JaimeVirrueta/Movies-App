@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\TurnController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('movies', [MovieController::class, 'index'])->name('movie.index');
+Route::get('turns', [TurnController::class, 'index'])->name('turn.index');
 
 Auth::routes();
 
