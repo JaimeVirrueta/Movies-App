@@ -12,7 +12,7 @@ class Movie extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'published_at', 'image_path'
+        'name', 'published_at', 'image_path', 'is_activve'
     ];
 
     /**
@@ -22,6 +22,7 @@ class Movie extends Model
      */
     protected $casts = [
         'published_at' => 'date',
+        'is_active' => 'boolean'
     ];
 
     /**
@@ -31,5 +32,10 @@ class Movie extends Model
     public function turns()
     {
         return $this->belongsToMany(Turn::class);
+    }
+
+    public function getActiveTextAttribute()
+    {
+        return $this->is_active ? 'Activo' : 'Inactivo';
     }
 }

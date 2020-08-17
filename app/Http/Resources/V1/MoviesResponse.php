@@ -17,8 +17,9 @@ class MoviesResponse extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'published_at' => $this->published_at,
+            'published_at' => $this->published_at->toDateString(),
             'image_url' => $this->image_url,
+            'is_active' => $this->active_text,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'links' => [

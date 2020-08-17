@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class MovieUpdateRequest extends FormRequest
 {
-    /**
+    /**m
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -28,6 +28,7 @@ class MovieUpdateRequest extends FormRequest
             'name' => ['required', 'unique:' . Movie::class . ',name,' . $this->movie->id . ',id'],
             'published_at' => ['required', 'date'],
             'image' => ['nullable', 'image'],
+            'is_Active' => ['nullable', 'boolean'],
         ];
     }
 }

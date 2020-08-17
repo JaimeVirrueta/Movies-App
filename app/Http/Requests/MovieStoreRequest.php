@@ -28,6 +28,7 @@ class MovieStoreRequest extends FormRequest
             'name' => ['required', 'unique:'.Movie::class.',name'],
             'published_at' => ['required', 'date'],
             'image' => ['required', 'image'],
+            'is_Active' => ['nullable', 'boolean'],
         ];
     }
 }
