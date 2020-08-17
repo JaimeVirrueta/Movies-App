@@ -38,4 +38,9 @@ class Movie extends Model
     {
         return $this->is_active ? 'Activo' : 'Inactivo';
     }
+
+    public function getImageUrlAttribute()
+    {
+        return asset('/storage/movie_files/'.$this->image_path);
+    }
 }
