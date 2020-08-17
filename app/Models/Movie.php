@@ -6,7 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
-    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'published_at', 'image_path'
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'published_at' => 'date',
+    ];
+
     /**
      * A Movie maybe has a many turns
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
