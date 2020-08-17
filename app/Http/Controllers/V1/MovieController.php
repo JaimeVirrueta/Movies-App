@@ -88,6 +88,7 @@ class MovieController extends BaseApiController
     {
         DB::beginTransaction();
         try {
+            $movie->turns()->sync([]);
             $movie->delete();
             Storage::disk('movie_files')->delete($movie->image_path);
 

@@ -68,6 +68,7 @@ class TurnController extends BaseApiController
     {
         DB::beginTransaction();
         try {
+            $turn->movies()->sync([]);
             $turn->delete();
 
             DB::commit();
