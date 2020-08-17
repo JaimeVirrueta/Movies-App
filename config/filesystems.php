@@ -65,6 +65,17 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        /**
+         * Custom Filesystems
+         */
+
+        'movie_files' => [
+            'driver' => 'local',
+            'root' => storage_path('app\public\movie_files'),
+            'url' => env('APP_URL').'/storage/movie_files',
+            'visibility' => 'public',
+        ]
+
     ],
 
     /*
