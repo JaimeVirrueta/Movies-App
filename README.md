@@ -75,6 +75,10 @@ In response , copy the token from "access_token", after set it in the request he
 | PATCH | api/v1/turn/{turn}                      |
 | GET | api/v1/turn/{turn}                      |
 
+For complete list of endpoints to test the api use this url to import to your Postman app
+
+[https://documenter.getpostman.com/view/2009972/T1LTfQCC](https://documenter.getpostman.com/view/2009972/T1LTfQCC)
+
 For complete list of urls in your terminal type and execute
 
         php artisan r:l
