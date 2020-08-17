@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Movie;
+use App\Models\Turn;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MovieUpdateRequest extends FormRequest
@@ -26,9 +27,10 @@ class MovieUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'unique:' . Movie::class . ',name,' . $this->movie->id . ',id'],
-            'published_at' => ['required', 'date'],
+            'published_at' => ['nullable', 'date'],
             'image' => ['nullable', 'image'],
             'is_Active' => ['nullable', 'boolean'],
+            'turns.*' => ['nullable', 'exists:'.Turn::class.',id']
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Movie;
+use App\Models\Turn;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MovieStoreRequest extends FormRequest
@@ -29,6 +30,7 @@ class MovieStoreRequest extends FormRequest
             'published_at' => ['required', 'date'],
             'image' => ['required', 'image'],
             'is_Active' => ['nullable', 'boolean'],
+            'turns.*' => ['nullable', 'exists:'.Turn::class.',id']
         ];
     }
 }

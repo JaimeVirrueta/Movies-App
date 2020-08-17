@@ -38,6 +38,7 @@ class MovieController extends BaseApiController
             $image->storeAs('', $imageName, 'movie_files');
 
             $row->image_path = $imageName;
+            $this->processTurns($row, $request->get('turns', []));
             $row->save();
 
             DB::commit();
@@ -66,6 +67,8 @@ class MovieController extends BaseApiController
 
                 $movie->image_path = $imageName;
             }
+
+            $this->processTurns($movie, $request->get('turns', []));
 
             $movie->fill($request->validated())->save();
 
@@ -98,5 +101,14 @@ class MovieController extends BaseApiController
 
             return $this->errorResponse($th->getMessage(), 422);
         }
+    }
+
+    private function processTurns($movie, $turns)
+    {
+        if (!empty($turns)) {
+            $movie->turns()->sync($turns);
+        }
+
+        return $movie;
     }
 }
