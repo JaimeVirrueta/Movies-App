@@ -21,8 +21,16 @@ class Turn extends Model
      * @var array
      */
     protected $casts = [
-        'turn_name' => 'time',
         'is_active' => 'boolean'
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'turn_name'
     ];
 
     /**
@@ -32,5 +40,10 @@ class Turn extends Model
     public function movies()
     {
         return $this->belongsToMany(Movie::class);
+    }
+
+    public function getActiveTextAttribute()
+    {
+        return $this->is_active ? 'Activo' : 'Inactivo';
     }
 }
