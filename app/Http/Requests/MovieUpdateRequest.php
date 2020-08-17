@@ -26,7 +26,7 @@ class MovieUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'unique:' . Movie::class . ',name,' . $this->movie->id . ',id'],
+            'name' => ['required', 'unique:' . Movie::class . ',name,' . $this->movie->id . ',id', 'string', 'max:128'],
             'published_at' => ['nullable', 'date'],
             'image' => ['nullable', 'image'],
             'is_Active' => ['nullable', 'boolean'],

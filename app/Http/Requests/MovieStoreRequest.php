@@ -26,7 +26,7 @@ class MovieStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'unique:'.Movie::class.',name'],
+            'name' => ['required', 'unique:'.Movie::class.',name', 'string', 'max:128'],
             'published_at' => ['required', 'date'],
             'image' => ['required', 'image'],
             'is_Active' => ['nullable', 'boolean'],
